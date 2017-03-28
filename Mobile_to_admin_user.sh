@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# generate local user account based on UID of greater than 1000, if multiple AD accounts exist this will grab all of them
-# Script coutesy of JAMF Nation and Tom Larkin
+# Script to change any current AD mobile accounts to Admin accounts 
+# Script coutesy of JAMF Nation and Tom Larkin/Modified by HCCSC JFH 032817
 
 temp=$(ls /Users | grep -v ".localized" | grep -v "Shared")
 for i in $temp
