@@ -1,7 +1,7 @@
 #!/bin/sh
 ####################################################################################################
 #
-# Copyright (c) 2010, JAMF Software, LLC.  All rights reserved.
+# Part  s Copyright (c) 2010, JAMF Software, LLC.  All rights reserved.
 #
 #       Redistribution and use in source and binary forms, with or without
 #       modification, are permitted provided that the following conditions are met:
@@ -103,6 +103,27 @@
 # If this script is to be deployed via policy using the JSS leave the next line as is.
 #
 ####################################################################################################
+#  FIRST SET LOCATION SERVICES TO ON 
+######################### ENVIRONMENT VARIABLES #######################
+
+# Get the Hardware UUID from system profiler
+uuid=$(/usr/sbin/system_profiler SPHardwareDataType | grep "Hardware UUID" | cut -c22-57)
+
+####################### DO NOT MODIFY BELOW THIS LINE #################
+
+# Unload the launch daemon
+/bin/launchctl unload /System/Library/LaunchDaemons/com.apple.locationd.plist
+
+# Write the UUID to the hidden plist file and initialise it
+/usr/bin/defaults write /var/db/locationd/Library/Preferences/ByHost/com.apple.locationd."$uuid" LocationServicesEnabled -int 1
+
+# Enable Location Services
+/usr/bin/defaults write /var/db/locationd/Library/Preferences/ByHost/com.apple.locationd.notbackedup."$uuid" LocationServicesEnabled -int 1
+
+# Make sure the permissions on the database file is correct
+/usr/sbin/chown -R _locationd:_locationd /var/db/locationd
+/bin/launchctl load /System/Library/LaunchDaemons/com.apple.locationd.plist
+# THEN RUN SET TIME ZONE SCRIPT
 
 timeZone="America/New_York"
 
