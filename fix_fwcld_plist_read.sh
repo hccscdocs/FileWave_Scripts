@@ -9,7 +9,7 @@
 #
 #	Version Info:
 #	1.0 - Initial script	
-#	1.1 - Added Ryan Log funtions
+#
 #
 #	ToDo:
 #
