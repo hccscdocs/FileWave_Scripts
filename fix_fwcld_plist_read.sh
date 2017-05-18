@@ -9,7 +9,7 @@
 #
 #	Version Info:
 #	1.0 - Initial script	
-#
+#	1.1   Fixed Script syntax
 #
 #	ToDo:
 #
@@ -24,6 +24,6 @@ exec 1>>/var/log/fwcld.log
 
 exec 2>>/var/log/fwcld.log
 
-echo "Running fwcld.plist details fix script
+echo "Running fwcld.plist details fix script"
 
 chmod o+r /usr/local/etc/fwcld.plist
