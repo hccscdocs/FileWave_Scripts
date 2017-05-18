@@ -27,4 +27,3 @@ exec 2>>/var/log/fwcld.log
 echo "Running fwcld.plist details fix script
 
 chmod o+r /usr/local/etc/fwcld.plist
-
