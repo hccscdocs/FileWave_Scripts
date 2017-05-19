@@ -1,0 +1,49 @@
+#!/bin/bash
+#Written by Mauricio 8/2015
+#Based on Dave's and Darcey's naming scripts 
+#Changes the name on both the filewave_client and on the computer itself based on CSV file
+#CSV file format is --> SERIAL,ComputerName
+
+#log all to filewave client log
+exec 1>>/var/log/fwcld.log
+exec 2>>/var/log/fwcld.log
+
+serial=$( system_profiler SPHardwareDataType | awk '/Serial/ {print $4}' )
+name=$( cat /usr/local/etc/naming.csv | grep $serial | awk -F, '{print $2}' )
+
+echo $name
+
+if [ -z "$name" ]; then
+              	echo "SERIAL number was not included in the CSV file, Please verify!"
+	echo "No changing name..."
+	echo "Add the serial number and name for this computer to the CSV file and re-send the Fileset"
+
+            else
+
+	echo "SERIAL number found!"
+	echo "Changing name..."
+
+	# To check if format is correct from the CSV file -> it should be \n not \r \n
+	echo $name | od -c
+
+        	echo "Setting Computer Name"
+        	/usr/sbin/scutil --set ComputerName $name
+        	echo "Setting Local Host Name"
+        	/usr/sbin/scutil --set LocalHostName $name
+        	echo "Setting Host Name"
+        	/usr/sbin/scutil --set HostName $name
+
+
+	#Tell fwcld not to use the computer name and to set the computer name to the corresponding value in the csv file
+
+	defaults write /usr/local/etc/fwcld syncComputerName 1
+	defaults write /usr/local/etc/fwcld fwUser $name
+
+
+	#Restart fwcld for changes to take effect
+
+	fwcontrol client restart
+fi
+
+
+exit 0
