@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Script to set SecURLy DNS Settings
+# JFH/SecURLy Support v3 032317
+
+#log all to filewave client log
+
+exec 1>>/var/log/fwcld.log
+
+exec 2>>/var/log/fwcld.log
+
+servers="172.28.2.12 184.72.238.71 184.72.238.58"
+networksetup -listallnetworkservices | sed 1d $file | while read adapter
+do
+    networksetup -setdnsservers "$adapter" $servers
+    networksetup -setv6off "$adapter"
+done
+dscacheutil -flushcache
+exit 0
