@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadCertificateFileName</key>
+			<string>server.crt</string>
+			<key>PayloadContent</key>
+			<data>
+			MIIB+TCCAWKgAwIBAgIBATANBgkqhkiG9w0BAQUFADAqMQswCQYD
+			VQQGEwJVUzEbMBkGA1UEAxMSZncuaGNjc2MuazEyLmluLnVzMB4X
+			DTEyMDcxMDE0Mzc1MFoXDTIyMDcwODE0Mzc1MFowKjELMAkGA1UE
+			BhMCVVMxGzAZBgNVBAMTEmZ3LmhjY3NjLmsxMi5pbi51czCBnzAN
+			BgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAu8H27lG0gRRD0Cl4ZAkw
+			z8iZuZtinJ73DqqqNe9+7bec50uVymSJEf5f0844B7j3FDJ6YrWo
+			OthNd63BBqMlG3cFvjZuceyU1FBCg27kvnMV/T5IoquA/Q3A7Kal
+			DWedSuQiL00KQ1On+1QzOMplEZGNb+qYNQCN6QQai7cPgI8CAwEA
+			AaMvMC0wDAYDVR0TBAUwAwEB/zAdBgNVHREEFjAUghJmdy5oY2Nz
+			Yy5rMTIuaW4udXMwDQYJKoZIhvcNAQEFBQADgYEAdoMAiDWtbjZY
+			Ocy3+IeC7jsjDG+t9cfL+lX9VL9Ri5UIX0fLJ3hpfCGtPz5HiE7x
+			jgrD2KQV2ZR6MXKdaLtuzQwvs99QMuLbiCb5T/2klaUvGz5fn7Yd
+			vvvpJIFA23ja/GIciQlYk6BMy5uj1+HUwWnOWadqOFlmo3gu0iw7
+			6SE=
+			</data>
+			<key>PayloadDescription</key>
+			<string>Provides device authentication (certificate or identity).</string>
+			<key>PayloadDisplayName</key>
+			<string>fw.hccsc.k12.in.us</string>
+			<key>PayloadIdentifier</key>
+			<string>com.filewave.ac.enrollment_profile.credential</string>
+			<key>PayloadOrganization</key>
+			<string>Huntington County Community Schools</string>
+			<key>PayloadType</key>
+			<string>com.apple.security.root</string>
+			<key>PayloadUUID</key>
+			<string>f623881f-8a36-b6aa-e36c-d9c6ff4cebba</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>PayloadContent</key>
+			<dict>
+				<key>Challenge</key>
+				<string>filewave</string>
+				<key>Key Type</key>
+				<string>RSA</string>
+				<key>Key Usage</key>
+				<integer>5</integer>
+				<key>Keysize</key>
+				<integer>2048</integer>
+				<key>Name</key>
+				<string>FW SCEP</string>
+				<key>Subject</key>
+				<array>
+					<array>
+						<array>
+							<string>O</string>
+							<string>Default organization name</string>
+						</array>
+					</array>
+					<array>
+						<array>
+							<string>CN</string>
+							<string>filewavemdm</string>
+						</array>
+					</array>
+				</array>
+				<key>URL</key>
+				<string>https://fw.hccsc.k12.in.us:20443/ios/scep</string>
+			</dict>
+			<key>PayloadDescription</key>
+			<string>Configures SCEP</string>
+			<key>PayloadDisplayName</key>
+			<string>SCEP (FW SCEP)</string>
+			<key>PayloadIdentifier</key>
+			<string>com.filewave.profileservice.scep</string>
+			<key>PayloadOrganization</key>
+			<string>Huntington County Community Schools</string>
+			<key>PayloadType</key>
+			<string>com.apple.security.scep</string>
+			<key>PayloadUUID</key>
+			<string>65B07399-9208-4BC2-AF2B-4DC41AA1B7DF</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>AccessRights</key>
+			<integer>8191</integer>
+			<key>CheckInURL</key>
+			<string>https://fw.hccsc.k12.in.us:20443/ios/mdm_enroll</string>
+			<key>CheckOutWhenRemoved</key>
+			<true/>
+			<key>IdentityCertificateUUID</key>
+			<string>65B07399-9208-4BC2-AF2B-4DC41AA1B7DF</string>
+			<key>PayloadDescription</key>
+			<string>Configures Mobile Device Management</string>
+			<key>PayloadDisplayName</key>
+			<string>Mobile Device Management</string>
+			<key>PayloadIdentifier</key>
+			<string>com.filewave.ac.enrollment_profile.mdm</string>
+			<key>PayloadOrganization</key>
+			<string>FileWave</string>
+			<key>PayloadType</key>
+			<string>com.apple.mdm</string>
+			<key>PayloadUUID</key>
+			<string>5F1B65CD-A5CA-43DF-A4CB-EC4D946E3661</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>ServerCapabilities</key>
+			<array>
+				<string>com.apple.mdm.per-user-connections</string>
+			</array>
+			<key>ServerURL</key>
+			<string>https://fw.hccsc.k12.in.us:20443/ios/mdm</string>
+			<key>SignMessage</key>
+			<false/>
+			<key>Topic</key>
+			<string>com.apple.mgmt.External.06554cd0-bd52-4478-b53c-2e95efd7f95b</string>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>This profile allows this device to be securely managed by the FileWave MDM Server.</string>
+	<key>PayloadDisplayName</key>
+	<string>FileWave MDM</string>
+	<key>PayloadIdentifier</key>
+	<string>com.filewave.ac.enrollment_profile</string>
+	<key>PayloadOrganization</key>
+	<string>FileWave</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>36C4E046-74B6-4B3A-862E-D10691DF5507</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
