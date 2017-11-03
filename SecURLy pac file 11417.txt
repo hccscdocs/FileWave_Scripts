@@ -1,0 +1,242 @@
+//Securly PACVer 11/3/2017
+
+function FindProxyForURL(url, host)
+	{
+        //
+	// Null routed traffic
+	//
+	//	if(shExpMatch(host, "sample.domain"))		{return "PROXY 1.1.1.1:80";}
+	if(shExpMatch(host, "*.craigslist.org"))		{return "PROXY 1.1.1.1:80";}
+	//
+	// Frequent domains excluded
+	//
+		if(shExpMatch(host, "accounts.google.*"))		{return "DIRECT";}
+		if(shExpMatch(host, "accounts.youtube.*"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.microsoft.com"))			{return "DIRECT";}
+		if(shExpMatch(host, "clients*.google.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "microsoft.com"))			{return "DIRECT";}
+		if(shExpMatch(host, "*.office.com"))			{return "DIRECT";}
+		if(shExpMatch(host, "office.com"))			{return "DIRECT";}
+		if(shExpMatch(host, "*.securly.com"))			{return "DIRECT";}
+		if(shExpMatch(host, "securly.com"))			{return "DIRECT";}
+		if(shExpMatch(host, "*.ytimg.com"))			{return "DIRECT";}
+		if(shExpMatch(host, "*.googlevideo.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "clients*.google.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "scholar.google.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "classroom.google.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "gstatic.com"))			{return "DIRECT";}
+		if(shExpMatch(host, "*.gstatic.com"))			{return "DIRECT";}
+		if(shExpMatch(host, "googleusercontent.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.googleusercontent.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "googlesyndication.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.googlesyndication.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "ggpht.com"))			{return "DIRECT";}
+		if(shExpMatch(host, "*.ggpht.com"))			{return "DIRECT";}
+		if(shExpMatch(host, "google-analytics.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.google-analytics.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "googleadservices.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.googleadservices.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.googleapis.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "docs.google.com"))			{return "DIRECT";}
+		if(shExpMatch(host, "drive.google.com"))		{return "DIRECT";}
+
+		
+	//
+	// Apple URLs & CDN URLs
+	//
+		if (shExpMatch(host, "*apple.com"))                 {return "DIRECT";}
+		if (shExpMatch(host, "*icloud.com"))                {return "DIRECT";}
+		if (shExpMatch(host, "*itunes.com"))	            {return "DIRECT";}
+		if (shExpMatch(host, "*edgesuite.net"))             {return "DIRECT";}
+		if (shExpMatch(host, "*akamai.net"))                {return "DIRECT";}
+		if (shExpMatch(host, "*akamaihd.net"))              {return "DIRECT";}
+		if (shExpMatch(host, "*mzstatic.com"))              {return "DIRECT";}
+		if (shExpMatch(host, "*akadns.net"))	            {return "DIRECT";}
+		if (shExpMatch(host, "*edgekey.net"))               {return "DIRECT";}
+		if (shExpMatch(host, "*akamaiedge.net"))            {return "DIRECT";}
+		if (shExpMatch(host, "*akamaitechnologies.com"))    {return "DIRECT";}
+		if (shExpMatch(host, "*amazonaws.com"))             {return "DIRECT";}
+		if (shExpMatch(host, "*symcb.com*"))                {return "DIRECT";}
+		if (shExpMatch(host, "*verisign.com*"))             {return "DIRECT";}
+		if (shExpMatch(host, "*symcd.com*"))                {return "DIRECT";}
+	//
+	//
+	// Additional domains and services to be sent DIRECT rather than Securly proxy
+	//		
+		if(shExpMatch(host, "*.mcgraw-hill.com"))	{return "DIRECT";}
+		if(shExpMatch(host, "mcgraw-hill.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.mhedu.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "mhedu.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.pusherapp.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "pusherapp.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.hapara.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "hapara.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.appspot.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "appspot.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.nwea.org"))		{return "DIRECT";}
+		if(shExpMatch(host, "nwea.org"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.adobeconnect.com"))	{return "DIRECT";}
+		if(shExpMatch(host, "adobeconnect.com"))	{return "DIRECT";}
+		if(shExpMatch(host, "*.schoology.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "schoology.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.renaissance.com"))	{return "DIRECT";}
+		if(shExpMatch(host, "renaissance.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.renlearn.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "renlearn.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.renlearnrp.com"))	{return "DIRECT";}
+		if(shExpMatch(host, "renlearnrp.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.brainpop.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "brainpop.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.quizlet.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "quizlet.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.quizlet.live"))		{return "DIRECT";}
+		if(shExpMatch(host, "quizlet.live"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.canvaslms.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "canvaslms.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.instructure.com")) 	{return "DIRECT";}
+		if(shExpMatch(host, "instructure.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "*.kahoot.*"))  		{return "DIRECT";}
+		if(shExpMatch(host, "kahoot.*"))  		{return "DIRECT";}
+		if(shExpMatch(host, "netflix.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "*.netflix.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "hulu.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "*.hulu.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "spotify.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "*.spotify.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "ebscohost.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "*.ebscohost.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "follettsoftware.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "*.follettsoftware.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "wiscat.net"))  		{return "DIRECT";}
+		if(shExpMatch(host, "*.wiscat.net"))  		{return "DIRECT";}
+		if(shExpMatch(host, "newsmemory.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "*.newsmemory.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "*.spellingcity.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "spellingcity.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "vocabularyspellingcity.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "noodletools.com"))  	{return "DIRECT";}	
+		if(shExpMatch(host, "*.noodletools.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "*.discoveryeducation.com")){return "DIRECT";}
+		if(shExpMatch(host, "discoveryeducation.com"))  {return "DIRECT";}
+		if(shExpMatch(host, "*.squareup.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "squareup.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "*.branch.io"))     	{return "DIRECT";}
+		if(shExpMatch(host, "branch.io"))  		{return "DIRECT";}
+		if(shExpMatch(host, "*.mobileapptracking.com")) {return "DIRECT";}
+		if(shExpMatch(host, "mobileapptracking.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "*.appsverse.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "*.photonbrowser.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "baiboard.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "*.baiboard.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "explorelearning.com"))  	{return "DIRECT";}
+		if(shExpMatch(host, "*.explorelearning.comm"))  {return "DIRECT";}
+		if(shExpMatch(host, "razkids.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "*.razkids.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "kidsa-z.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "*.kidsa-z.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "*.reflexmath.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "reflexmath.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "*.waterford.org"))  		{return "DIRECT";}
+		if(shExpMatch(host, "*.qcarsdk.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "public.cloud.unity3d.com"))  		{return "DIRECT";}
+		if(shExpMatch(host, "config.uca.cloud.unity3d.com"))  		{return "DIRECT";}				
+		if(shExpMatch(host, "*.xtramath.org"))  		{return "DIRECT";}				
+		if(shExpMatch(host, "xtramath.org"))  		{return "DIRECT";}				
+		if(shExpMatch(host, "*.digicert.com"))  		{return "DIRECT";}				
+		if(shExpMatch(host, "*.waterfordearlylearning.org"))  		{return "DIRECT";}				
+				
+	//
+	// Domains used by LightSail APP 
+	//	
+		if(shExpMatch(host, "ls-api.com"))  		  {return "DIRECT";}
+		if(shExpMatch(host, "*.ls-api.com"))	  	  {return "DIRECT";}
+		if(shExpMatch(host, "lightsailed.com"))  	  {return "DIRECT";}
+		if(shExpMatch(host, "*.lightsailed.com"))  	  {return "DIRECT";}
+		if(shExpMatch(host, "adobe.com"))	  	  {return "DIRECT";}
+		if(shExpMatch(host, "*.adobe.com"))	  	  {return "DIRECT";}
+		if(shExpMatch(host, "baker-taylor.com"))  	  {return "DIRECT";}
+		if(shExpMatch(host, "*.baker-taylor.com"))  	  {return "DIRECT";}
+		if(shExpMatch(host, "digitalcontentcafe.com"))    {return "DIRECT";}
+		if(shExpMatch(host, "*.digitalcontentcafe.com"))  {return "DIRECT";}
+		if(shExpMatch(host, "btol.com"))	  	  {return "DIRECT";}
+		if(shExpMatch(host, "*.btol.com"))	  	  {return "DIRECT";}
+		if(shExpMatch(host, "cloudapp.net"))	  	  {return "DIRECT";}
+		if(shExpMatch(host, "*.cloudapp.net"))  	  {return "DIRECT";}
+		if(shExpMatch(host, "newrelic.com"))	  	  {return "DIRECT";}
+		if(shExpMatch(host, "*.newrelic.com"))  	  {return "DIRECT";}
+		if(shExpMatch(host, "logentries.com"))  	  {return "DIRECT";}
+		if(shExpMatch(host, "*.logentries.com"))  	  {return "DIRECT";}
+		if(shExpMatch(host, "fabric.io"))	  	  {return "DIRECT";}
+		if(shExpMatch(host, "*.fabric.io"))	  	  {return "DIRECT";}
+		if(shExpMatch(host, "crashlytics.com"))  	  {return "DIRECT";}
+		if(shExpMatch(host, "*.crashlytics.com"))  	  {return "DIRECT";}
+	//
+	// Domains used by Hudl APP 
+	//	
+		if(shExpMatch(host, "*.hudl.com"))  		  {return "DIRECT";}
+		if(shExpMatch(host, "hudl.zendesk.com"))	  {return "DIRECT";}
+		if(shExpMatch(host, "api.mixpanel.com"))  	  {return "DIRECT";}
+		if(shExpMatch(host, "arc.msn.com"))  	  	  {return "DIRECT";}
+		if(shExpMatch(host, "*.akamaized.net"))	  	  {return "DIRECT";}
+		if(shExpMatch(host, "*.crashlytics.com"))	  {return "DIRECT";}	
+	//
+	// Domains used by PearsonAccess // PARCC Testing sent DIRECT rather than Securly proxy
+	//
+		if(shExpMatch(host, "*.testnav.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "testnav.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.pearsontestcontent.com")){return "DIRECT";}
+		if(shExpMatch(host, "pearsontestcontent.com"))	{return "DIRECT";}
+		if(shExpMatch(host, "*.thawte.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "thawte.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.usertrust.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "usertrust.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.comodoca.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "comodoca.com"))		{return "DIRECT";}
+	//
+	// MDM domains and services to be sent DIRECT rather than Securly proxy
+	//	
+		if(shExpMatch(host, "*.meraki.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "meraki.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.jamfcloud.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "jamfcloud.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.awmdm.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "awmdm.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.air-watch.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "air-watch.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.airwatch.com"))		{return "DIRECT";}
+		if(shExpMatch(host, "airwatch.com"))		{return "DIRECT";}
+	//
+	// TLDs and school domain to be sent DIRECT rather than Securly proxy
+	//
+		if(shExpMatch(host, "*.edu"))			{return "DIRECT";}
+		if(shExpMatch(host, "*.gov"))			{return "DIRECT";}
+		if(shExpMatch(host, "*.gov.uk"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.k12.*.us"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.sch.uk"))		{return "DIRECT";}
+		if(shExpMatch(host, "hssd.k12.wi.us"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.hssd.k12.wi.us"))	{return "DIRECT";}
+	//
+	// If destination is an IP address, localhost, plain hostname (eg. http://webserver), or on the .local domain, return all traffic to DIRECT rather than Securly proxy
+	//	
+		if(shExpMatch(host, "/^\d+\.\d+\.\d+\.\d+$/g"))	{return "DIRECT";}
+		if(shExpMatch(host, "localhost.*"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.localhost.*"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.localhost"))		{return "DIRECT";}
+		if(shExpMatch(host, "*.local"))			{return "DIRECT";}
+		if(isPlainHostName(host))			{return "DIRECT";}
+	//
+	// If the requested website destination is an RFC1918 or loopback address, send DIRECT rather than Securly proxy
+	//
+		//SKIP ALL IPS
+		reip = /^\d+\.\d+\.\d+\.\d+$/g;
+		if (reip.test(host)) 				{return "DIRECT";}
+		//
+		if(isInNet(host, "10.0.0.0", "255.0.0.0"))	{return "DIRECT";}
+		if(isInNet(host, "172.16.0.0", "255.240.0.0"))	{return "DIRECT";}
+		if(isInNet(host, "192.168.0.0", "255.255.0.0"))	{return "DIRECT";}
+		if(isInNet(host, "127.0.0.0", "255.255.255.0"))	{return "DIRECT";}
+	//
+	// Return remaining traffic to Securly load balance proxy  
+	//
+		return "PROXY useast-dp.securly.com:80";
+	}
